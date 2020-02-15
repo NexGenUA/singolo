@@ -132,6 +132,12 @@ a {
   border-bottom: 6px solid rgb(234,103,107);
 }
 
+.slider-block button {
+  background: none;
+  border: none;
+  outline-style: none;
+}
+
 .slider {
   height: inherit;
   display: flex;
