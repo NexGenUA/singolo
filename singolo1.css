@@ -179,6 +179,7 @@ a {
 .arrow {
   cursor: pointer;
   transition: opacity .2s;
+  height: 27px;
 }
 
 .arrow:hover {
