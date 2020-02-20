@@ -60,15 +60,14 @@ a {
   padding-top: 9px;
   letter-spacing: -0.029rem;
   position: relative;
-  cursor: pointer;
   transition: color .3s;
 }
 
-.header .menu li:hover {
+.header .menu a:hover {
   color: rgb(255, 137, 131);
 }
 
-.header .menu li:active {
+.header .menu a:active {
   position: relative;
   top: 1px;
 }
@@ -78,7 +77,7 @@ a {
   position: absolute;
   left: -16px;
   top: 6px;
-  font-size: bold;
+  font-weight: bold;
   color: rgb(73,78,98);
 }
 
