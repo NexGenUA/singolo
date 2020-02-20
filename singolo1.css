@@ -6,6 +6,10 @@
 }
 
 h1 {
+  text-transform: uppercase;
+}
+
+h2 {
   text-transform: capitalize;
 }
 
@@ -82,12 +86,14 @@ a {
   color: rgb(240,108,100);
 }
 
-.header .logo {
+.header .logo,
+.header .logo h1 {
   font-weight: bold;
   font-size: 1.55rem;
-  margin-left: 40px;
+  margin-left: 20px;
   letter-spacing: -0.02rem;
   padding-bottom: 1px;
+  display: inline;
 }
 
 .brand-color{
@@ -138,7 +144,7 @@ a {
   padding: 59px 10px 0 10px;
 }
 
-.main h1 {
+.main h2 {
   font-size: 1.9rem;
   font-weight: 900;
   letter-spacing: -0.025rem;
@@ -201,7 +207,7 @@ a {
   max-width: 242px;
 }
 
-.inner-content h2{
+.inner-content h3{
   text-transform: capitalize;
   font-size: 1.1rem;
   font-weight: 900;
@@ -242,15 +248,15 @@ a {
   padding-top: 14px;
 }
 
-.content-2 .content-block:nth-child(6) h2 {
+.content-2 .content-block:nth-child(6) h3 {
   padding-left: 2px;
 }
 
-.content-2 .content-block:nth-child(3) h2 {
+.content-2 .content-block:nth-child(3) h3 {
   padding-left: 2px;
 }
 
-.content-block:hover h2 {
+.content-block:hover h3 {
   cursor: crosshair;
   color: rgb(240,108,100);
 }
