@@ -332,8 +332,14 @@ svg:hover {
   margin-bottom: 9px;
   border-radius: 5px;
   font-size: 12px;
+  cursor: pointer;
 }
 
+.portfolio-menu ul button:focus {
+  color: rgb(222, 222, 222);
+  border-color: rgb(222, 222, 222);
+  outline: none;
+}
 
 .gallery .img {
   width: 220px;
@@ -395,7 +401,7 @@ svg:hover {
 
 .about-content {
   background-color: rgb(242, 242, 242);
-  border-bottom: 6px solid white;
+  border-bottom: 6px solid whitegit;
 }
 
 .about {
@@ -450,6 +456,9 @@ svg:hover {
 
 .figure figcaption h3{
   letter-spacing: -0.017rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .figure figcaption p{
