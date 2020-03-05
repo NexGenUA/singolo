@@ -284,9 +284,190 @@ svg:hover {
 
 .portfolio-content {
   background-color:rgb(45, 48, 58);
-  height: 870px;
+  height: 869px;
+  border-bottom: 6px solid rgb(50,55,70);
+}
+
+.content-3 p{
+  color: rgb(102, 109, 137);
+  margin-left: 10px;
+  margin-top: 22px;
+  font-weight: 300;
+  font-size: 18px;
 }
 
 .portfolio {
+  padding: 59px 30px 0;
   margin: 0 auto;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  height: 621px;
+  overflow: hidden;
+}
+
+.portfolio-h2 {
+  text-transform: capitalize;
+  color: rgb(102, 109, 137);
+  font-weight: 900;
+  font-size: 1.9rem;
+  margin-left: 10px;
+  letter-spacing: -0.015rem;
+}
+
+.portfolio-menu ul{
+  display: flex;
+  list-style: none;
+  padding-left: 6px;
+}
+
+.portfolio-menu ul button {
+  background: none;
+  color: rgb(102, 109, 137);
+  border: 1px solid rgb(102, 109, 137);
+  padding: 2px 6px 3px 6px;
+  margin: 15px 5px;
+  margin-bottom: 9px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+
+.gallery .img {
+  width: 220px;
+  height: 187px;
+  margin: 10px;
+}
+
+.img1 {
+  background-image: url(assets/img/1.jpg);
+}
+
+.img2 {
+  background-image: url(assets/img/2.jpg);
+}
+
+.img3 {
+  background-image: url(assets/img/3.jpg);
+}
+
+.img4 {
+  background-image: url(assets/img/4.jpg);
+}
+
+.img5 {
+  background-image: url(assets/img/5.jpg);
+}
+
+.img6 {
+  background-image: url(assets/img/6.jpg);
+}
+
+.img7 {
+  background-image: url(assets/img/7.jpg);
+}
+
+.img8 {
+  background-image: url(assets/img/8.jpg);
+}
+
+.img9 {
+  background-image: url(assets/img/9.jpg);
+}
+
+.img10 {
+  background-image: url(assets/img/10.jpg);
+}
+
+.img11 {
+  background-image: url(assets/img/11.jpg);
+}
+
+.img12 {
+  background-image: url(assets/img/12.jpg);
+}
+
+.people {
+  display: flex;
+}
+
+.about-content {
+  background-color: rgb(242, 242, 242);
+  border-bottom: 6px solid white;
+}
+
+.about {
+  margin: 0 auto;
+  padding: 59px 30px 0;
+}
+
+.figure {
+  width: 300px;
+}
+
+.wrap-image {
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+}
+
+.about-h2 {
+  font-size: 30px;
+  font-weight: 900;
+  color: rgb(102, 109, 137);
+  padding-left: 10px;
+}
+
+.content-4 p {
+  color: rgb(102, 109, 137);
+  font-size: 18px;
+  font-weight: 300;
+  padding: 0 10px;
+  margin-top: 18px;
+  line-height: 1.9rem;
+  text-align: justify;
+}
+
+.people {
+  margin-top: 35px;
+}
+
+.figure {
+  margin: 10px;
+}
+
+.figure:nth-child(2) {
+  margin-left: 9px;
+  margin-right: 11px;
+}
+
+.figure figcaption {
+  color: rgb(102, 109, 137);
+  margin-top: 15px;
+}
+
+.figure figcaption h3{
+  letter-spacing: -0.017rem;
+}
+
+.figure figcaption p{
+  text-align: justify;
+  font-size: 12px;
+  line-height: 1.37rem;
+  margin-top: 8px;
+  letter-spacing: -0.004rem;
+}
+
+.social {
+  margin-top: 23px;
+}
+
+.social a {
+  margin-right: 3px;
+}
+
+.social.last {
+  margin-left: -1px;
 }
