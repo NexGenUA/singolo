@@ -129,21 +129,21 @@ a {
   margin-left: 18px;
 }
 
-.main-content {
+.services-content {
   background-color: rgb(242,242,242);
   min-height: 500px;
   border-bottom: 6px solid white;
   padding: 0 30px;
 }
 
-.main {
+.services {
   max-width: 960px;
   color: rgb(102, 109, 137);;
   margin: 0 auto;
   padding: 59px 10px 0 10px;
 }
 
-.main h2 {
+.services h2 {
   font-size: 1.9rem;
   font-weight: 900;
   letter-spacing: -0.025rem;
@@ -280,4 +280,13 @@ svg {
 
 svg:hover { 
   cursor: crosshair;
+}
+
+.portfolio-content {
+  background-color:rgb(45, 48, 58);
+  height: 870px;
+}
+
+.portfolio {
+  margin: 0 auto;
 }
