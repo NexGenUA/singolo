@@ -21,6 +21,10 @@ a {
   color: inherit;
 }
 
+button::-moz-focus-outer, ::-moz-focus-inner {
+  border: 0;
+}
+
 .section {
   max-width: 1020px;
 }
@@ -533,6 +537,7 @@ svg:hover {
   background-color: rgb(214, 86, 79);
   color: rgb(240,216, 217);
   padding: 14px;
+  outline: none;
 }
 
 .form input::-webkit-input-placeholder{
@@ -558,6 +563,7 @@ svg:hover {
   margin-bottom: 16px;
   background-color: rgb(214, 86, 79);
   color: rgb(240,216, 217);
+  outline: none;
 }
 
 .form input.send-button {
@@ -565,6 +571,10 @@ svg:hover {
   text-transform: uppercase;
   cursor: pointer;
   padding: 0;
+}
+
+.form input:invalid:focus {
+  border: 1px solid yellow;
 }
 
 .form input.send-button:hover {
