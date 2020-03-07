@@ -345,6 +345,10 @@ svg:hover {
   outline: none;
 }
 
+.portfolio-menu ul button:hover {
+  filter: brightness(5.75)
+}
+
 .gallery .img {
   width: 220px;
   height: 187px;
