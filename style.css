@@ -572,10 +572,10 @@ svg:hover {
 }
 
 .form input.send-button {
-  width: 70px;
+  width: 90px;
   text-transform: uppercase;
   cursor: pointer;
-  padding: 0;
+  padding: 0 20px;
 }
 
 .form input:invalid:focus {
