@@ -476,6 +476,8 @@ svg:hover {
   line-height: 1.37rem;
   margin-top: 8px;
   letter-spacing: -0.004rem;
+  max-height: 42px;
+  overflow: hidden;
 }
 
 .social {
