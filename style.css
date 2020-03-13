@@ -30,15 +30,17 @@ button::-moz-focus-outer, ::-moz-focus-inner {
   border: 0;
 }
 
-.section {
-  max-width: 1020px;
-}
 a.anchor {
   display: block;
   position: relative;
   top: -95px;
   visibility: hidden;
 }
+
+.section {
+  max-width: 1020px;
+}
+
 .top {
   width: 100%;
   background-color: rgb(45,48,58);
@@ -46,6 +48,7 @@ a.anchor {
   height: 95px;
   top: 0;
   position: fixed;
+  z-index: 10;
 }
 
 .header {
@@ -134,8 +137,9 @@ a.anchor {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px 12px 42px;
+  padding: 0 40px 6px 42px;
   margin: 0 auto;
+  user-select: none;
 }
 
 .slider img:nth-child(2) {
@@ -144,6 +148,95 @@ a.anchor {
 
 .slider img:nth-child(3) {
   margin-left: 18px;
+}
+
+.img-slider-container {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+}
+
+.slider-wrapper {
+  height: 100%;
+  width: 100%;
+  margin: 0 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.img-slider-container.blue {
+  background-color: rgb(100,139,240);
+}
+
+.wrap-img {
+  position: relative;
+}
+
+.screen-slider-1 {
+  content: '';
+  top: 65px;
+  left: 14px;
+  width: 188px;
+  height: 333px;
+  background-color: black;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.screen-slider-2 {
+  content: '';
+  top: 14px;
+  left: 60px;
+  width: 333px;
+  height: 188px;
+  background-color: black;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.screen-slider-3 {
+  content: '';
+  top: 151px;
+  left: 10px;
+  width: 122px;
+  height: 217px;
+  background-color: black;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.screen-slider-4 {
+  content: '';
+  top: 69px;
+  left: 146px;
+  width: 201px;
+  height: 354px;
+  background-color: black;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.screen-slider-5 {
+  content: '';
+  top: 151px;
+  left: 370px;
+  width: 123px;
+  height: 217px;
+  background-color: black;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.screen-on {
+  opacity: 0;
 }
 
 .services-content {

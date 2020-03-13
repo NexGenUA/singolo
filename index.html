@@ -29,10 +29,28 @@
   <a class="anchor" id="home"></a>
   <section class="slider-block">
     <aside class="slider section">
-      <button class="arrow"><img src="./assets/img/arrow-left.png" alt="prev"></button>
-      <img class="img-slider" src="./assets/img/img-1.png" alt="phone-1">
-      <img class="img-slider img-slider2" src="./assets/img/img-2.png" alt="phone-2">
-      <button class="arrow"><img src="./assets/img/arrow-right.png" alt="next"></button>
+      <button class="arrow prev" id="prev-button"><img src="./assets/img/arrow-left.png" alt="prev"></button>
+      <div class="slider-wrapper">
+        <div class="img-slider-container" id="slider-block-1" current-slide>
+          <div class="wrap-img">
+            <img class="img-slider" src="./assets/img/img-1.png" alt="phone-1">
+            <div class="screen-on screen-slider-1"></div>
+          </div>
+          <div class="wrap-img">
+            <img class="img-slider img-slider-2" src="./assets/img/img-2.png" alt="phone-2">
+            <div class="screen-on screen-slider-2"></div>
+          </div>
+        </div>
+        <div class="img-slider-container blue" id="slider-block-2" style="display: none">
+          <div class="wrap-img">
+            <img class="img-slider" src="./assets/img/slider-content.png" alt="phone-3">
+            <div class="screen-on screen-slider-3"></div>
+            <div class="screen-on screen-slider-4"></div>
+            <div class="screen-on screen-slider-5"></div>
+          </div>          
+        </div>
+      </div>
+      <button class="arrow next" id="next-button"><img src="./assets/img/arrow-right.png" alt="next"></button>
     </aside>
   </section>
   <a class="anchor" id="services"></a>
