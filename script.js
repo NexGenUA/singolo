@@ -52,7 +52,7 @@ class Slider {
 
     [currentSlide, nextSlide].map((slide, i) => {
       slide.style.display = 'flex';
-      slide.style.transition = 'all .5s linear';
+      slide.style.transition = 'all .5s ease-in-out';
       
       if (!i) {
         slide.style.marginLeft = `${prev ? '-' : ''}${width}px`;        
@@ -87,11 +87,60 @@ class Slider {
 class Tabs {
   constructor() {
     this.ul = document.querySelector('#tabs');
+    this.images = document.querySelector('.gallery');
+    this.allImages = Array.from(document.querySelectorAll('.gallery .img'));
     this.ul.addEventListener('click', this.toggleTabs);
+    this.images.addEventListener('click', this.selectImage);
   }
 
-  toggleTabs(e) {
-    console.log(e.target)
+  toggleTabs = (e) => {
+    const button = e.target;
+
+    if (!button || button.tagName !== 'BUTTON') return;
+    
+    if (button.classList.contains('active-tab')) return;
+    const ul = button.closest('ul');
+    const buttonList = ul.querySelectorAll('button');
+
+    buttonList.forEach(el => el.classList.remove('active-tab'));
+
+    button.classList.add('active-tab');
+    
+    if (button.hasAttribute('all-images')) {
+      this.changeImagesPositions(this.allImages);
+      return;
+    }
+
+    this.changeImagesPositions();
+  }
+
+  changeImagesPositions(allImages) {
+    
+    let images = Array.from(document.querySelectorAll('.gallery .img'));
+    const gallery = document.querySelector('.gallery');
+    const coords = images.map(el => [el.offsetTop, el.offsetLeft]);
+
+    images = allImages ? allImages : images;
+
+    if (!allImages) images.sort(() => Math.random() - 0.5);
+
+    images.map((img, i) => {
+      img.style.opacity = 0.5;
+      img.style.top = `${coords[i][0] - img.offsetTop}px`;
+      img.style.left = `${coords[i][1] - img.offsetLeft}px`;
+    })
+
+    setTimeout(() => {
+      gallery.append(...images);
+      images.map(img => {
+        img.style.top = img.style.left = 0;
+        img.style.opacity = 1;
+      })
+    }, 500)
+  }
+
+  selectImage(e) {
+    console.log(e)
   }
 }
 

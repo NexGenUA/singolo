@@ -433,6 +433,7 @@ svg:hover {
   flex-wrap: wrap;
   height: 621px;
   overflow: hidden;
+  position: relative;
 }
 
 .portfolio-h2 {
@@ -462,20 +463,27 @@ svg:hover {
   cursor: pointer;
 }
 
-.portfolio-menu ul button:focus {
+.portfolio-menu ul button.active-tab {
   color: rgb(222, 222, 222);
   border-color: rgb(222, 222, 222);
+}
+
+.portfolio-menu ul button:focus {
   outline: none;
 }
 
 .portfolio-menu ul button:hover {
-  filter: brightness(5.75)
+  filter: brightness(5.75);
 }
 
 .gallery .img {
   width: 220px;
   height: 187px;
   margin: 10px;
+  top: 0;
+  left: 0;
+  position: relative;
+  transition: all .5s ease-in-out;
 }
 
 .img1 {
