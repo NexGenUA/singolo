@@ -1,4 +1,5 @@
 class ActiveLink {
+
   constructor() {
     this.menu  = document.querySelector('#menu-list');
     this.menu.addEventListener('click', this.setActiveLink)
@@ -14,6 +15,7 @@ class ActiveLink {
 }
 
 class Slider {
+
   constructor() {
     this.sliders = document.querySelectorAll('.img-slider-container');
     this.screens = document.querySelectorAll('.screen-on');
@@ -85,6 +87,7 @@ class Slider {
 }
 
 class Tabs {
+
   constructor() {
     this.ul = document.querySelector('#tabs');
     this.images = document.querySelector('.gallery');
@@ -151,6 +154,64 @@ class Tabs {
   }
 }
 
+class SendForm {
+
+  constructor() {
+    this.form = document.forms['form'];
+    this.form.addEventListener('submit', this.send)
+  }
+
+  send = e => {
+
+    e.preventDefault();
+
+    if (!this.form.checkValidity()) return;
+
+    const subject = this.form.elements['subject'].value;
+    const area = this.form.elements['area'].value;
+    const title = /^Singolo$/.test(subject.trim()) ? `Тема: Singolo`: `Без темы`;
+    const describe = /^Portfolio project$/.test(area.trim()) ? `Описание: Portfolio project` : `Без описания`;
+
+    Modal.show(title, describe);
+
+    this.form.reset();
+  }
+}
+
+class Modal {
+  
+  constructor() {
+    this.hover = document.querySelector('.modal-hover');
+    this.modal = document.querySelector('.modal-submit');
+    this.close =  document.querySelector('.close-modal');
+    this.close.addEventListener('click', this.hide);
+  }
+
+  static show(title, desc) {
+    const titleSpan = document.querySelector('.title');
+    const descSpan = document.querySelector('.describe');
+    const hover = document.querySelector('.modal-hover');
+    const modal = document.querySelector('.modal-submit');
+
+    titleSpan.innerHTML = title;
+    descSpan.innerHTML = desc;
+    hover.style.display = 'flex';
+    modal.classList.add('show-modal');
+  }
+
+  hide = e => {
+    console.log('hi')
+    this.modal.classList.remove('show-modal');
+    this.modal.classList.add('hide-modal');
+    setTimeout(() => {
+      this.hover.style.display = 'none';
+      this.modal.classList.remove('hide-modal');
+    }, 500)
+  }  
+}
+
 new ActiveLink();
 new Slider();
 new Tabs();
+new SendForm();
+new Modal();

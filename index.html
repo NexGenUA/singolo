@@ -207,11 +207,11 @@
         <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
       </article>
       <article class="content-form">
-        <form action="?" method="GET" name="form" class="form">
-          <input type="text" placeholder="Name (Required)" required pattern="[a-zA-Z]{3,}">
+        <form action="#" method="GET" name="form" class="form">
+          <input type="text" placeholder="Name (Required)" required>
           <input type="email" placeholder="Email (Required)" required>
-          <input type="text" placeholder="Subject">
-          <textarea name="area" id="area" placeholder="Describe your project in detail..."></textarea>
+          <input type="text" placeholder="Subject" name="subject">
+          <textarea id="area" name="area" placeholder="Describe your project in detail..."></textarea>
           <input type="submit" value="submit" class="send-button">
         </form>
         <aside class="about-us">
@@ -239,6 +239,14 @@
       </aside>
     </div>
   </footer>
+  <div class="modal-hover">
+    <div class="modal-submit">
+      <span class="message">Письмо отправлено</span><br>
+      <span class="title"></span><br>
+      <span class="describe"></span><br>
+      <button class="close-modal send-button" id="close-modal" value="ok">ok</button>
+    </div>
+  </div>
   <script src="./script.js"></script>
 </body>
 </html>
