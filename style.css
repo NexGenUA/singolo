@@ -8,6 +8,7 @@
 html {
   margin-top: 95px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -123,7 +124,7 @@ a.anchor {
 .slider-block {
   height: 600px;
   background-color: rgb(240,108,100);
-  border-bottom: 6px solid rgb(234,103,107);
+  position: relative;
 }
 
 .slider-block button {
@@ -137,7 +138,6 @@ a.anchor {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px 6px 42px;
   margin: 0 auto;
   user-select: none;
 }
@@ -154,21 +154,28 @@ a.anchor {
   width: 100%;
   height: inherit;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   position: absolute;
+  border-bottom: 6px solid rgb(234,103,107);
+  padding: 0 25px;
+  top: 0;
+  left: 0;
+}
+
+.img-slider-1 {
+  margin-right: 70px;
 }
 
 .slider-wrapper {
   height: 100%;
   width: 100%;
-  margin: 0 20px;
   overflow: hidden;
-  position: relative;
 }
 
 .img-slider-container.blue {
   background-color: rgb(100,139,240);
+  border-bottom: 6px solid rgb(98,146,255);
 }
 
 .wrap-img {
@@ -262,12 +269,22 @@ a.anchor {
 
 .arrow {
   cursor: pointer;
+  opacity: .2;
   transition: opacity .2s;
   height: 27px;
+  z-index: 2;
+}
+
+.arrow.prev {
+  margin-left: 40px;
+}
+
+.arrow.next {
+  margin-right: 42px;
 }
 
 .arrow:hover {
-  opacity: .5;
+  opacity: .4;
 }
 
 .arrow:active {

@@ -43,7 +43,7 @@ class Slider {
     
     this.isMove = true;
 
-    const width = document.querySelector('.slider-wrapper').clientWidth;
+    const width = window.innerWidth;
     const shift = prev ? -1 : 1;
     const currentSlide = sliders.find(el => el.hasAttribute('current-slide'));
     const currentIdx = sliders.indexOf(currentSlide);
@@ -84,5 +84,17 @@ class Slider {
   }
 }
 
+class Tabs {
+  constructor() {
+    this.ul = document.querySelector('#tabs');
+    this.ul.addEventListener('click', this.toggleTabs);
+  }
+
+  toggleTabs(e) {
+    console.log(e.target)
+  }
+}
+
 new ActiveLink();
 new Slider();
+new Tabs();
