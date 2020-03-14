@@ -139,8 +139,15 @@ class Tabs {
     }, 500)
   }
 
-  selectImage(e) {
-    console.log(e)
+  selectImage = e => {
+
+    const selectetdImg = e.target;
+    const allImages = this.allImages;
+    
+    if (!selectetdImg || !selectetdImg.classList.contains('img')) return;
+
+    allImages.forEach(img => img.classList.remove('select-img'));
+    selectetdImg.classList.add('select-img');
   }
 }
 

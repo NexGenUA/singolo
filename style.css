@@ -483,7 +483,16 @@ svg:hover {
   top: 0;
   left: 0;
   position: relative;
-  transition: all .5s ease-in-out;
+  transition: top .5s ease-in-out, 
+              left .5s ease-in-out, 
+              opacity .5s ease-in-out;
+  cursor: pointer;
+}
+
+.gallery .img.select-img {
+  border: 5px solid rgb(240,108,100);
+  margin: 5px;
+  box-sizing: content-box;
 }
 
 .img1 {
