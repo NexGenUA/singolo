@@ -43,7 +43,7 @@ a.anchor {
 }
 
 .top {
-  width: 100%;
+  width: 100vw;
   background-color: rgb(45,48,58);
   border-bottom: 6px solid rgb(50,55,70);
   height: 95px;

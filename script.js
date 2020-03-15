@@ -35,7 +35,7 @@ class Slider {
 
     if (btn.tagName !== 'BUTTON') return;
     
-    const direction = btn.classList.contains('prev');
+    const direction = btn.classList.contains('next');
 
     this.move(sliders, direction);
     
