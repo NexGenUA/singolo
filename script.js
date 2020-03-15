@@ -76,8 +76,7 @@ class Slider {
   }
 
   onScreen({ target }) {
-    console.log('hi')
-    target.classList.toggle('screen-on');
+    target.closest('.switch').classList.toggle('screen-on');
   }
 
   getIdx(cur, shift, len) {
@@ -167,10 +166,10 @@ class SendForm {
 
     if (!this.form.checkValidity()) return;
 
-    const subject = this.form.elements['subject'].value;
-    const area = this.form.elements['area'].value;
-    const title = /^Singolo$/.test(subject.trim()) ? `Тема: Singolo`: `Без темы`;
-    const describe = /^Portfolio project$/.test(area.trim()) ? `Описание: Portfolio project` : `Без описания`;
+    const subject = this.form.elements['subject'].value.trim();
+    const area = this.form.elements['area'].value.trim();
+    const title = subject ? '<b>Тема:</b> ' + subject : 'Без темы';
+    const describe = area ? '<b>Описание:</b> ' + area : 'Без описания';
 
     Modal.show(title, describe);
 
@@ -185,6 +184,7 @@ class Modal {
     this.modal = document.querySelector('.modal-submit');
     this.close =  document.querySelector('.close-modal');
     this.close.addEventListener('click', this.hide);
+    this.html = document.querySelector('html');
   }
 
   static show(title, desc) {
@@ -192,20 +192,25 @@ class Modal {
     const descSpan = document.querySelector('.describe');
     const hover = document.querySelector('.modal-hover');
     const modal = document.querySelector('.modal-submit');
+    const html = document.querySelector('html');
+    const padding = window.innerWidth - document.body.clientWidth;
 
     titleSpan.innerHTML = title;
     descSpan.innerHTML = desc;
     hover.style.display = 'flex';
     modal.classList.add('show-modal');
+    html.style.overflow = 'hidden';
+    html.style.paddingRight = `${padding}px`;
   }
 
   hide = e => {
-    console.log('hi')
     this.modal.classList.remove('show-modal');
     this.modal.classList.add('hide-modal');
     setTimeout(() => {
       this.hover.style.display = 'none';
       this.modal.classList.remove('hide-modal');
+      this.html.style.overflow = '';
+      this.html.style.paddingRight = '';
     }, 500)
   }  
 }

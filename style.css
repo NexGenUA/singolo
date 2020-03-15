@@ -208,7 +208,7 @@ a.anchor {
 
 .screen-slider-3 {
   content: '';
-  top: 151px;
+  top: 42px;
   left: 10px;
   width: 122px;
   height: 217px;
@@ -221,7 +221,7 @@ a.anchor {
 .screen-slider-4 {
   content: '';
   top: 69px;
-  left: 146px;
+  left: 15px;
   width: 201px;
   height: 354px;
   background-color: black;
@@ -232,8 +232,8 @@ a.anchor {
 
 .screen-slider-5 {
   content: '';
-  top: 151px;
-  left: 370px;
+  top: 42px;
+  left: 9px;
   width: 123px;
   height: 217px;
   background-color: black;
@@ -244,6 +244,56 @@ a.anchor {
 
 .screen-on {
   opacity: 0;
+}
+
+.screen-on-1 {
+  width: 216px;
+  height: 458px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.screen-on-2 {
+  width: 458px;
+  height: 215px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.screen-on-3 {
+  width: 131px;
+  height: 298px;
+  position: absolute;
+  top: 109px;
+  left: 0;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.screen-on-4 {
+  width: 230px;
+  height: 487px;
+  position: absolute;
+  top: 0;
+  left: 131px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.screen-on-5 {
+  width: 140px;
+  height: 298px;
+  position: absolute;
+  top: 109px;
+  left: 361px;
+  border-radius: 15px;
+  cursor: pointer;
 }
 
 .services-content {
@@ -877,7 +927,7 @@ svg:hover {
 .modal-submit {
   background-color: rgb(235,235,235);
   width: 400px;
-  height: 180px;
+  max-height: 400px;
   position: relative;
   padding: 30px;
   margin: auto;
@@ -920,4 +970,24 @@ svg:hover {
 
 .close-modal:active {
   bottom: 28px;
+}
+
+.modal-submit .message {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+
+.modal-submit .title {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.modal-submit .describe {
+  margin-bottom: 50px;
+  overflow: auto;
+  max-height: 222px;
+  text-align: justify;
 }
