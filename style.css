@@ -31,7 +31,7 @@ button::-moz-focus-outer, ::-moz-focus-inner {
   border: 0;
 }
 
-a.anchor {
+.anchor {
   display: block;
   position: relative;
   top: -95px;
@@ -539,9 +539,7 @@ svg:hover {
 }
 
 .gallery .img.select-img {
-  border: 5px solid rgb(240,108,100);
-  margin: 5px;
-  box-sizing: content-box;
+  box-shadow: 0 0 0 5px rgb(240,108,100);
 }
 
 .img1 {

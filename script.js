@@ -1,16 +1,43 @@
 class ActiveLink {
 
   constructor() {
-    this.menu  = document.querySelector('#menu-list');
-    this.menu.addEventListener('click', this.setActiveLink)
+    this.links  = document.querySelectorAll('#menu-list a');
+    this.menu = document.querySelector('#menu-list');
+    this.anchors = [...document.querySelectorAll('section')].slice(1);
+    this.blockList = {};
+    this.anchors.forEach(block => {
+      this.blockList[block.id] = {
+        top: block.offsetTop,
+        height: block.offsetHeight
+      }
+    });
+    window.addEventListener('scroll', this.setActiveLink);
+    this.menu.addEventListener('click', this.scrollTo);
   }
 
-  setActiveLink(e) {
+  setActiveLink = e => {
+    const shift = window.innerHeight / 4;
+    for (const block in this.blockList) {
+      const top = this.blockList[block].top;
+      const offset = window.pageYOffset
+      if (offset >= top - shift && offset <= top + shift) {
+        this.links.forEach(link => {
+          link.parentNode.classList.remove('active');
+          if (!!~link.href.indexOf(block)) {
+            link.parentNode.classList.add('active');
+          }
+        })
+      }
+    }
+  }
+
+  scrollTo = e => {
+    e.preventDefault();
     const link = e.target;
     if (link.tagName !== 'A') return; 
-    const liList = link.closest('ul').querySelectorAll('li');
-    liList.forEach(el => el.classList.remove('active'))
-    link.parentNode.classList.add('active')
+    const href = link.href.replace(/^.*\#/g, '');
+    const Y = this.blockList[href].top;
+    window.scrollTo(0, Y);
   }
 }
 
@@ -121,11 +148,22 @@ class Tabs {
     let images = Array.from(document.querySelectorAll('.gallery .img'));
     const gallery = document.querySelector('.gallery');
     const coords = images.map(el => [el.offsetTop, el.offsetLeft]);
-
+    
     images = allImages ? allImages : images;
-
-    if (!allImages) images.sort(() => Math.random() - 0.5);
-
+    
+    if (!allImages) {
+      const keys = Object.keys(images);
+      while (keys.length) {
+        const idx = Math.floor(Math.random()*keys.length);
+        const x = +keys[idx];
+        keys.splice(idx, 1);
+        const idx2 = Math.floor(Math.random()*keys.length);
+        const y = +keys[idx2];
+        keys.splice(idx2, 1);
+        [images[x], images[y]] = [images[y], images[x]];
+      }      
+    }
+    
     images.map((img, i) => {
       img.style.opacity = 0.5;
       img.style.top = `${coords[i][0] - img.offsetTop}px`;
