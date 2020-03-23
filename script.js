@@ -86,11 +86,11 @@ class Slider {
       slide.style.transition = 'all .5s ease-in-out';
       
       if (!i) {
-        slide.style.marginLeft = `${prev ? '-' : ''}${width}px`;        
+        slide.style.left = `${prev ? '-' : ''}${width}px`;        
       } else {
-        slide.style.marginLeft = `${!prev ? '-' : ''}${width}px`;
+        slide.style.left = `${!prev ? '-' : ''}${width}px`;
         setTimeout(() => {
-          slide.style.marginLeft = '';
+          slide.style.left = '';
         }, 50)
       }
 
@@ -207,8 +207,8 @@ class SendForm {
 
     const subject = this.form.elements['subject'].value.trim();
     const area = this.form.elements['area'].value.trim();
-    const title = subject ? '<b>Тема:</b> ' + subject : 'Без темы';
-    const describe = area ? '<b>Описание:</b> ' + area : 'Без описания';
+    const title = subject ? 'Тема: ' + subject : 'Без темы';
+    const describe = area ? 'Описание: ' + area : 'Без описания';
 
     Modal.show(title, describe);
 
@@ -234,8 +234,8 @@ class Modal {
     const html = document.querySelector('html');
     const padding = window.innerWidth - document.body.clientWidth;
 
-    titleSpan.innerHTML = title;
-    descSpan.innerHTML = desc;
+    titleSpan.textContent = title;
+    descSpan.textContent = desc;
     hover.style.display = 'flex';
     modal.classList.add('show-modal');
     html.style.overflow = 'hidden';

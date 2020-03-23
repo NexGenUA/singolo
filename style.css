@@ -53,6 +53,10 @@ button::-moz-focus-outer, ::-moz-focus-inner {
   z-index: 10;
 }
 
+.hamburger-menu {
+  display: none;
+}
+
 .header {
   margin: 0 auto;
   height: inherit;
@@ -82,6 +86,7 @@ button::-moz-focus-outer, ::-moz-focus-inner {
   padding-top: 9px;
   position: relative;
   transition: color .3s;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .header .menu a:hover {
@@ -271,6 +276,7 @@ button::-moz-focus-outer, ::-moz-focus-inner {
 }
 
 .screen-on {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   opacity: 0;
 }
 
@@ -352,6 +358,7 @@ button::-moz-focus-outer, ::-moz-focus-inner {
   transition: opacity .2s;
   height: 27px;
   z-index: 2;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .arrow.prev {
@@ -527,6 +534,7 @@ svg:hover {
   display: flex;
   list-style: none;
   padding-left: 6px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .portfolio-menu ul button {
@@ -802,10 +810,12 @@ svg:hover {
   font-size: 14px;
   font-weight: bold;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .form input.send-button:active {
-  margin-top: 1px;
+  top: 1px;
+  position: relative;
 }
 
 .form input:invalid:focus {
@@ -1081,9 +1091,231 @@ svg:hover {
     height: 25vw;
     flex: 1 0 23%;
     background-size: cover;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   .inner-content p {
     max-width: 30vw;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .section {
+    width: auto;
+  }
+
+  nav.menu {
+    display: none;
+  }
+
+  .top {
+    display: flex;
+    border-bottom: none;
+    height: 71px;
+  }
+
+  .hamburger-menu {
+    position: absolute;
+    display: inline-block;
+    left: 20px;
+    top: 26px;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+  }
+
+  .hamburger-line {
+    display: inline-block;
+    background-color: white;
+    position: absolute;
+    top: calc(50% - 1.2px);
+    left: 0;
+    border-radius: 5px;
+    height: 2.4px;
+    width: 100%;
+  }
+
+  .hamburger-menu::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    border-radius: 5px;
+    height: 2.4px;
+    width: 100%;
+  }
+
+  .hamburger-menu::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    border-radius: 5px;
+    height: 2.4px;
+    width: 100%;
+  }
+
+  .arrow.prev {
+    margin-left: 3%;
+  }
+  
+  .arrow.next {
+    margin-right: 3%;
+  }
+
+  .margin-slider-1 {
+    width: 17%;
+  }
+
+  .img-slider-container {
+    border-bottom: 2.4px solid rgb(234,103,107);
+  }
+
+  .inner-slider-block {
+    padding: 0px 6%;
+  }
+
+  .portfolio {
+    padding: 59px 25px 0;
+  }
+
+  .inner-slider-block.slider-2 {
+    padding: 0px 17%;
+  }
+
+  .screen-slider-1 {
+    top: 13.5%;
+    left: 6.1%;
+  }
+  
+  .screen-slider-2 {
+    top: 6.2%;
+    left: 12.9%;
+  }
+  
+  .screen-slider-3 {
+    top: 13.8%;
+    left: 7.7%;
+  }
+  
+  .screen-slider-4 {
+    top: 13.7%;
+    width: 88%;
+    height: 73%;
+  }
+  
+  .screen-slider-5 {
+    top: 13.8%;
+    left: 5.3%;
+  }
+
+  .gallery .img {
+    width: auto;
+    height: 38vw;
+    flex: 1 0 32%;
+    background-size: cover;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin: 5px;
+  }
+
+  .gallery {
+    height: calc((38vw * 4) + 40px);
+  }
+
+  .header .logo, .header .logo h1 {
+    font-size: 19px;
+    margin-left: 0;
+  }
+
+  .inner-content p {
+    width: auto;
+  }
+
+  .content-2 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 123px 123px 123px 123px 123px 123px;
+  }
+
+  .quote-content {
+    height: auto;
+  }
+
+  .about-content {
+    height: auto;
+    padding-bottom: 30px;
+  }
+
+  .about {
+    padding: 59px 20px 0;
+  }
+
+  .people {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .figure {
+    width: calc(100vw - 75px);
+  }
+
+  .wrap-image {
+    width: auto;
+    height: auto;
+  }
+
+  .staff-img {
+    width: 100%;
+  }
+
+  .content-1 p {
+    min-width: auto;
+  }
+
+  .content-form {
+    flex-direction: column;
+  }
+
+  .form {
+    width: auto;
+  }
+
+  .form input {
+    width: 100%;
+  }
+
+  .form textarea {
+    width: 100%;
+  }
+
+  .form input.send-button {
+    width: 100%;
+  }
+
+  .about-us {
+    margin: 10px 0 30px 0;
+  }
+
+  .copyright {
+    display: none;
+  }
+
+  .wrap-footer {
+    justify-content: center;
+  }
+
+  .quote {
+    padding: 59px 20px 0;
+  }
+
+  .services-content {
+    padding: 0 20px;
+  }
+
+  html {
+    margin-top: 71px;
   }
 }
