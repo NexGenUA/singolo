@@ -13,6 +13,7 @@ class ActiveLink {
     });
     window.addEventListener('scroll', this.setActiveLink);
     this.menu.addEventListener('click', this.scrollTo);
+    window.scrollBy(0, 1);
   }
 
   setActiveLink = e => {
@@ -22,9 +23,10 @@ class ActiveLink {
       const offset = window.pageYOffset
       if (offset >= top - shift && offset <= top + shift) {
         this.links.forEach(link => {
-          link.parentNode.classList.remove('active');
           if (!!~link.href.indexOf(block)) {
             link.parentNode.classList.add('active');
+          } else {
+            link.parentNode.removeAttribute('class');
           }
         })
       }
@@ -57,7 +59,7 @@ class Slider {
 
     if (this.isMove) return;
     
-    const sliders = Array.from(this.sliders);
+    const sliders = [...this.sliders];
     const btn = e.target.closest('button');
 
     if (btn.tagName !== 'BUTTON') return;
@@ -117,7 +119,7 @@ class Tabs {
   constructor() {
     this.ul = document.querySelector('#tabs');
     this.images = document.querySelector('.gallery');
-    this.allImages = Array.from(document.querySelectorAll('.gallery .img'));
+    this.allImages = [...document.querySelectorAll('.gallery .img')];
     this.ul.addEventListener('click', this.toggleTabs);
     this.images.addEventListener('click', this.selectImage);
   }
@@ -145,7 +147,7 @@ class Tabs {
 
   changeImagesPositions(allImages) {
     
-    let images = Array.from(document.querySelectorAll('.gallery .img'));
+    let images = [...document.querySelectorAll('.gallery .img')];
     const gallery = document.querySelector('.gallery');
     const coords = images.map(el => [el.offsetTop, el.offsetLeft]);
     
@@ -173,8 +175,7 @@ class Tabs {
     setTimeout(() => {
       gallery.append(...images);
       images.map(img => {
-        img.style.top = img.style.left = 0;
-        img.style.opacity = 1;
+        img.removeAttribute('style');
       })
     }, 500)
   }

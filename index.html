@@ -17,7 +17,7 @@
       </div>
       <nav  class="menu">
         <ul id="menu-list">
-          <li class="active"><a href="#home">home</a></li>
+          <li><a href="#home">home</a></li>
           <li><a href="#services">services</a></li>
           <li><a href="#portfolio">portfolio</a></li>
           <li><a href="#about">about</a></li>
@@ -31,30 +31,43 @@
       <button class="arrow prev" id="prev-button"><img src="./assets/img/arrow-left.png" alt="prev"></button>
       <div class="slider-wrapper">
         <div class="img-slider-container" id="slider-block-1" current-slide>
-          <div class="wrap-img">
-            <img class="img-slider img-slider-1" src="./assets/img/img-1.png" alt="phone-1">
-            <div class="screen-on-1 screen-on switch">
-              <div class="screen-slider-1"></div>
-            </div>
-          </div>
-          <div class="wrap-img">
-            <img class="img-slider img-slider-2" src="./assets/img/img-2.png" alt="phone-2">
-            <div class="screen-on-2 screen-on switch">
-              <div class="screen-slider-2"></div>
+          <div class="outer-slider-block">
+            <div class="inner-slider-block">
+              <div class="margin-slider-lr-1"></div>
+              <div class="wrap-img">
+                <img class="img-slider img-slider-1" src="./assets/img/img-1.png" alt="phone-1">
+                <div class="screen-on-1 screen-on switch">
+                  <div class="screen-slider-1"></div>
+                </div>
+              </div>
+              <div class="margin-slider-1"></div>
+              <div class="wrap-img">
+                <img class="img-slider img-slider-2" src="./assets/img/img-2.png" alt="phone-2">
+                <div class="screen-on-2 screen-on switch">
+                  <div class="screen-slider-2"></div>
+                </div>
+              </div>
+              <div class="margin-slider-lr-1"></div>
             </div>
           </div>
         </div>
         <div class="img-slider-container blue" id="slider-block-2" style="display: none">
-          <div class="wrap-img">
-            <img class="img-slider" src="./assets/img/slider-content.png" alt="phone-3">
-            <div class="screen-on-3 screen-on switch">
-              <div class="screen-slider-3"></div>
-            </div>
-            <div class="screen-on-4 screen-on switch">
-              <div class="screen-slider-4"></div>
-            </div>
-            <div class="screen-on-5 screen-on switch">
-              <div class="screen-slider-5"></div>
+          <div class="outer-slider-block">
+            <div class="inner-slider-block">
+              <div class="margin-slider-lr-2"></div>
+              <div class="wrap-img">
+                <img class="img-slider" src="./assets/img/slider-content.png" alt="phone-3">
+                <div class="screen-on-3 screen-on switch">
+                  <div class="screen-slider-3"></div>
+                </div>
+                <div class="screen-on-4 screen-on switch">
+                  <div class="screen-slider-4"></div>
+                </div>
+                <div class="screen-on-5 screen-on switch">
+                  <div class="screen-slider-5"></div>
+                </div>
+              </div>
+              <div class="margin-slider-lr-2"></div>
             </div>
           </div>
         </div>
@@ -164,7 +177,7 @@
       </article>
       <article class="people">
         <figure class="figure">
-          <div class="wrap-image"><img src="assets/img/adam.jpg" alt="Adam Jensen" /></div>
+          <div class="wrap-image"><img class="staff-img" src="assets/img/adam.jpg" alt="Adam Jensen" /></div>
           <figcaption>
             <h3>Adam Jensen</h3>
             <p>Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
@@ -177,7 +190,7 @@
           </figcaption>
         </figure>
         <figure class="figure">
-          <div class="wrap-image"><img src="assets/img/desmond.jpg" alt="Desmond Miles" /></div>
+          <div class="wrap-image"><img class="staff-img" src="assets/img/desmond.jpg" alt="Desmond Miles" /></div>
           <figcaption>
             <h3>Desmond Miles</h3>
             <p>Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
@@ -190,7 +203,7 @@
           </figcaption>
         </figure>
         <figure class="figure">
-          <div class="wrap-image"><img src="assets/img/scolara.jpg" alt="Scolara Visari" /></div>
+          <div class="wrap-image"><img class="staff-img" src="assets/img/scolara.jpg" alt="Scolara Visari" /></div>
           <figcaption>
             <h3>Scolara Visari</h3>
             <p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
@@ -214,7 +227,7 @@
       <article class="content-form">
         <form action="#" method="GET" name="form" class="form">
           <input type="text" placeholder="Name (Required)" required>
-          <input type="email" placeholder="Email (Required)" required>
+          <input type="email" placeholder="Email (Required)" title="Enter valid e-mail, example: my-mail@mail.com" pattern="[a-zA-Z0-9-\._]+@[a-zA-Z]+\.[a-zA-Z]{2,6}" required>
           <input type="text" placeholder="Subject" name="subject">
           <textarea id="area" name="area" placeholder="Describe your project in detail..."></textarea>
           <input type="submit" value="submit" class="send-button">
