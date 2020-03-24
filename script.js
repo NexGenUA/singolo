@@ -11,13 +11,17 @@ class ActiveLink {
         height: block.offsetHeight
       }
     });
+    this.setActiveLink = this.setActiveLink.bind(this);
+    this.scrollTo = this.scrollTo.bind(this);
+    this.onLoad = this.onLoad.bind(this)
     window.addEventListener('scroll', this.setActiveLink);
     this.menu.addEventListener('click', this.scrollTo);
-    window.scrollBy(0, 1);
+    window.addEventListener('DOMContentLoaded', this.onLoad);
+    window.scrollBy(0, 0);
   }
 
-  setActiveLink = e => {
-    const shift = window.innerHeight / 4;
+  setActiveLink(e) {
+    const shift = window.innerHeight / 6;
     for (const block in this.blockList) {
       const top = this.blockList[block].top;
       const offset = window.pageYOffset
@@ -33,13 +37,36 @@ class ActiveLink {
     }
   }
 
-  scrollTo = e => {
+  scrollTo(e) {
     e.preventDefault();
     const link = e.target;
     if (link.tagName !== 'A') return; 
     const href = link.href.replace(/^.*\#/g, '');
+    this.anchors.forEach(block => {
+      this.blockList[block.id] = {
+        top: block.offsetTop,
+        height: block.offsetHeight
+      }
+    });
     const Y = this.blockList[href].top;
     window.scrollTo(0, Y);
+  }
+
+  onLoad(e) {
+    for (const block in this.blockList) {
+      const top = this.blockList[block].top;
+      const bottom = this.blockList[block].height + top;
+      const position = window.pageYOffset;
+      if (position >= top && position < bottom) {
+        this.links.forEach(link => {
+          if (!!~link.href.indexOf(block)) {
+            link.parentNode.classList.add('active');
+          } else {
+            link.parentNode.removeAttribute('class');
+          }
+        })
+      }
+    }
   }
 }
 
@@ -50,12 +77,14 @@ class Slider {
     this.screens = document.querySelectorAll('.screen-on');
     this.prev = document.querySelector('#prev-button');
     this.next = document.querySelector('#next-button');
+    this.changeSlider = this.changeSlider.bind(this);
+    this.onScreen = this.onScreen.bind(this);
     this.prev.onclick = this.next.onclick = this.changeSlider;
     this.screens.forEach(el => el.onclick = this.onScreen);
     this.isMove = false;
   }
 
-  changeSlider = e => {
+  changeSlider(e) {
 
     if (this.isMove) return;
     
@@ -74,7 +103,7 @@ class Slider {
     
     this.isMove = true;
 
-    const width = window.innerWidth;
+    const width = document.body.clientWidth;
     const shift = prev ? -1 : 1;
     const currentSlide = sliders.find(el => el.hasAttribute('current-slide'));
     const currentIdx = sliders.indexOf(currentSlide);
@@ -86,11 +115,11 @@ class Slider {
       slide.style.transition = 'all .5s ease-in-out';
       
       if (!i) {
-        slide.style.left = `${prev ? '-' : ''}${width}px`;        
+        slide.style.transform = `translateX(${prev ? '-' : ''}${width}px)`;
       } else {
-        slide.style.left = `${!prev ? '-' : ''}${width}px`;
+        slide.style.transform = `translateX(${!prev ? '-' : ''}${width}px)`;
         setTimeout(() => {
-          slide.style.left = '';
+          slide.style.transform = '';
         }, 50)
       }
 
@@ -120,11 +149,13 @@ class Tabs {
     this.ul = document.querySelector('#tabs');
     this.images = document.querySelector('.gallery');
     this.allImages = [...document.querySelectorAll('.gallery .img')];
+    this.toggleTabs = this.toggleTabs.bind(this);
+    this.selectImage = this.selectImage.bind(this);
     this.ul.addEventListener('click', this.toggleTabs);
     this.images.addEventListener('click', this.selectImage);
   }
 
-  toggleTabs = (e) => {
+  toggleTabs(e) {
     const button = e.target;
 
     if (!button || button.tagName !== 'BUTTON') return;
@@ -180,7 +211,7 @@ class Tabs {
     }, 500)
   }
 
-  selectImage = e => {
+  selectImage(e) {
 
     const selectetdImg = e.target;
     const allImages = this.allImages;
@@ -196,10 +227,11 @@ class SendForm {
 
   constructor() {
     this.form = document.forms['form'];
+    this.send = this.send.bind(this);
     this.form.addEventListener('submit', this.send)
   }
 
-  send = e => {
+  send(e) {
 
     e.preventDefault();
 
@@ -222,6 +254,7 @@ class Modal {
     this.hover = document.querySelector('.modal-hover');
     this.modal = document.querySelector('.modal-submit');
     this.close =  document.querySelector('.close-modal');
+    this.hide = this.hide.bind(this);
     this.close.addEventListener('click', this.hide);
     this.html = document.querySelector('html');
   }
@@ -242,9 +275,10 @@ class Modal {
     html.style.paddingRight = `${padding}px`;
   }
 
-  hide = e => {
+  hide(e) {
     this.modal.classList.remove('show-modal');
     this.modal.classList.add('hide-modal');
+    
     setTimeout(() => {
       this.hover.style.display = 'none';
       this.modal.classList.remove('hide-modal');
@@ -254,8 +288,65 @@ class Modal {
   }  
 }
 
+class showHamburgerMenu {
+  
+  constructor() {
+    this.hamburgerMenu = document.querySelector('#hamburger');
+    this.logo = document.querySelector('#logo');
+    this.menu = document.querySelector('#menu');
+    this.ul = this.menu.querySelector('#menu-list');
+    this.showMenu = this.showMenu.bind(this);
+    this.hamburgerMenu.addEventListener('click', this.showMenu);
+    this.stop = false;
+  }
+
+  showMenu(e) {
+    const hamburger = e.target.closest('.hamburger-menu');
+    
+    if (this.stop) return;
+    
+    this.stop = true;
+    
+    const hideMenu = () => {
+      this.menu.style.display = 'flex';
+      this.ul.style.transition = 'all .5s ease';
+
+      setTimeout(() => {
+        this.logo.style.left = 'calc(-50vw + 110px';
+        this.menu.style.background = 'rgba(45,48,58,.6)';
+        this.ul.style.transform = 'translateX(0)';
+      }, 50);
+
+      hamburger.classList.add('open-hamburger');
+
+      setTimeout(() => {
+        this.stop = false;
+      }, 500);
+    }
+
+    if (hamburger.classList.contains('open-hamburger')) {
+      hamburger.classList.remove('open-hamburger');
+      hamburger.classList.add('close-hamburger');
+      this.ul.style.transform = 'translateX(-278px)';
+      this.menu.style.background = 'rgba(45,48,58,0)';
+      this.logo.style.left = 0;
+      
+      setTimeout(() => {
+        hamburger.classList.remove('close-hamburger');
+        this.ul.removeAttribute('style');
+        this.menu.style.background = '';
+        this.menu.style.display = 'none';
+        this.stop = false;
+      }, 500);
+    } else {
+      hideMenu();
+    }
+  }
+}
+
 new ActiveLink();
 new Slider();
 new Tabs();
 new SendForm();
 new Modal();
+new showHamburgerMenu();
