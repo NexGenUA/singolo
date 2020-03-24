@@ -11,13 +11,16 @@
 <body>
   <section class="top">
     <header class="header section">
-      <div class="logo">
+      <span id="hamburger" class="hamburger-menu">
+        <span class="hamburger-line"></span>
+      </span>
+      <div class="logo" id="logo" style="transition: all 0.5s ease 0s; left: 0px;">
         <h1>singolo</h1>
         <span class="brand-color">*</span>
       </div>
-      <nav  class="menu">
-        <ul id="menu-list">
-          <li class="active"><a href="#home">home</a></li>
+      <nav  class="menu" id="menu">
+        <ul id="menu-list" class="menu-list">
+          <li><a href="#home">home</a></li>
           <li><a href="#services">services</a></li>
           <li><a href="#portfolio">portfolio</a></li>
           <li><a href="#about">about</a></li>
@@ -26,36 +29,48 @@
       </nav>
     </header>
   </section>
-  <a class="anchor" id="home"></a>
-  <section class="slider-block">
+  <section class="slider-block" id="home">
     <aside class="slider section">
       <button class="arrow prev" id="prev-button"><img src="./assets/img/arrow-left.png" alt="prev"></button>
       <div class="slider-wrapper">
         <div class="img-slider-container" id="slider-block-1" current-slide>
-          <div class="wrap-img">
-            <img class="img-slider img-slider-1" src="./assets/img/img-1.png" alt="phone-1">
-            <div class="screen-on-1 screen-on switch">
-              <div class="screen-slider-1"></div>
-            </div>
-          </div>
-          <div class="wrap-img">
-            <img class="img-slider img-slider-2" src="./assets/img/img-2.png" alt="phone-2">
-            <div class="screen-on-2 screen-on switch">
-              <div class="screen-slider-2"></div>
+          <div class="outer-slider-block">
+            <div class="inner-slider-block">
+              <div class="margin-slider-lr-1"></div>
+              <div class="wrap-img">
+                <img class="img-slider img-slider-1" src="./assets/img/img-1.png" alt="phone-1">
+                <div class="screen-on-1 screen-on switch">
+                  <div class="screen-slider-1"></div>
+                </div>
+              </div>
+              <div class="margin-slider-1"></div>
+              <div class="wrap-img">
+                <img class="img-slider img-slider-2" src="./assets/img/img-2.png" alt="phone-2">
+                <div class="screen-on-2 screen-on switch">
+                  <div class="screen-slider-2"></div>
+                </div>
+              </div>
+              <div class="margin-slider-lr-1"></div>
             </div>
           </div>
         </div>
         <div class="img-slider-container blue" id="slider-block-2" style="display: none">
-          <div class="wrap-img">
-            <img class="img-slider" src="./assets/img/slider-content.png" alt="phone-3">
-            <div class="screen-on-3 screen-on switch">
-              <div class="screen-slider-3"></div>
-            </div>
-            <div class="screen-on-4 screen-on switch">
-              <div class="screen-slider-4"></div>
-            </div>
-            <div class="screen-on-5 screen-on switch">
-              <div class="screen-slider-5"></div>
+          <div class="outer-slider-block">
+            <div class="inner-slider-block slider-2">
+              <div class="margin-slider-lr-2"></div>
+              <div class="wrap-img">
+                <img class="img-slider" src="./assets/img/slider-content.png" alt="phone-3">
+                <div class="screen-on-3 screen-on switch">
+                  <div class="screen-slider-3"></div>
+                </div>
+                <div class="screen-on-4 screen-on switch">
+                  <div class="screen-slider-4"></div>
+                </div>
+                <div class="screen-on-5 screen-on switch">
+                  <div class="screen-slider-5"></div>
+                </div>
+              </div>
+              <div class="margin-slider-lr-2"></div>
             </div>
           </div>
         </div>
@@ -63,8 +78,7 @@
       <button class="arrow next" id="next-button"><img src="./assets/img/arrow-right.png" alt="next"></button>
     </aside>
   </section>
-  <a class="anchor" id="services"></a>
-  <section class="services-content">
+  <section class="services-content" id="services">
     <div class="services section">
       <h2>our services</h2>
       <article class="content-1">
@@ -128,8 +142,7 @@
       </article>
     </div>
   </section>
-  <a class="anchor" id="portfolio"></a>
-  <section class="portfolio-content">
+  <section class="portfolio-content" id="portfolio">
     <div class="portfolio section">
       <article class="content-3">
         <h2 class="portfolio-h2">Portfolio</h2>
@@ -159,8 +172,7 @@
       </article>
     </div>
   </section>
-  <a class="anchor" id="about"></a>
-  <section class="about-content">
+  <section class="about-content" id="about">
     <div class="about section">
       <article class="content-4">
         <h2 class="about-h2">about us</h2>
@@ -168,7 +180,7 @@
       </article>
       <article class="people">
         <figure class="figure">
-          <div class="wrap-image"><img src="assets/img/adam.jpg" alt="Adam Jensen" /></div>
+          <div class="wrap-image"><img class="staff-img" src="assets/img/adam.jpg" alt="Adam Jensen" /></div>
           <figcaption>
             <h3>Adam Jensen</h3>
             <p>Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
@@ -181,7 +193,7 @@
           </figcaption>
         </figure>
         <figure class="figure">
-          <div class="wrap-image"><img src="assets/img/desmond.jpg" alt="Desmond Miles" /></div>
+          <div class="wrap-image"><img class="staff-img" src="assets/img/desmond.jpg" alt="Desmond Miles" /></div>
           <figcaption>
             <h3>Desmond Miles</h3>
             <p>Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
@@ -194,7 +206,7 @@
           </figcaption>
         </figure>
         <figure class="figure">
-          <div class="wrap-image"><img src="assets/img/scolara.jpg" alt="Scolara Visari" /></div>
+          <div class="wrap-image"><img class="staff-img" src="assets/img/scolara.jpg" alt="Scolara Visari" /></div>
           <figcaption>
             <h3>Scolara Visari</h3>
             <p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
@@ -209,8 +221,7 @@
       </article>
     </div>
   </section>
-  <a class="anchor" id="contact"></a>
-  <section class="quote-content">
+  <section class="quote-content" id="contact">
     <div class="quote section">
       <article class="content-5">
         <h2 class="quote-h2">Get a Quote</h2>
@@ -219,7 +230,7 @@
       <article class="content-form">
         <form action="#" method="GET" name="form" class="form">
           <input type="text" placeholder="Name (Required)" required>
-          <input type="email" placeholder="Email (Required)" required>
+          <input type="email" placeholder="Email (Required)" title="Enter valid e-mail, example: my-mail@mail.com" pattern="[a-zA-Z0-9-\._]+@[a-zA-Z]+\.[a-zA-Z]{2,6}" required>
           <input type="text" placeholder="Subject" name="subject">
           <textarea id="area" name="area" placeholder="Describe your project in detail..."></textarea>
           <input type="submit" value="submit" class="send-button">
