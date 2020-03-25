@@ -38,7 +38,7 @@ button::-moz-focus-outer, ::-moz-focus-inner {
 }
 
 .section {
-  width: 1020px;
+  max-width: 1020px;
 }
 
 .slider-block {
@@ -569,7 +569,8 @@ svg:hover {
 }
 
 .gallery .img {
-  width: 220px;
+  max-width: 220px;
+  width: 21vw;
   height: 187px;
   margin: 10px;
   top: 0;
@@ -1093,7 +1094,7 @@ svg:hover {
   }
 
   .gallery .img {
-    width: auto;
+    max-width: 100%;
     height: 25vw;
     flex: 1 0 23%;
     background-size: cover;
