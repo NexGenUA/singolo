@@ -1037,7 +1037,7 @@ svg:hover {
   text-align: justify;
 }
 
-@media only screen and (max-width: 1019px) and (min-width: 768px) {
+@media screen and (max-width: 1019px) {
   .section {
     width: auto;
   }
@@ -1102,7 +1102,7 @@ svg:hover {
 
 }
 
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   
   .section {
     width: auto;
