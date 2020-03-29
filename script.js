@@ -38,14 +38,6 @@ class ActiveLink {
         })
       }
     }
-
-    if (offset > 10) {
-      this.html.style.marginTop = '71px';
-      this.topSection.style.height = '71px';
-    } else {
-      this.html.removeAttribute('style');
-      this.topSection.removeAttribute('style');
-    }
   }
 
   scrollTo(e) {
