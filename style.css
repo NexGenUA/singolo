@@ -133,7 +133,7 @@ button::-moz-focus-outer, ::-moz-focus-inner {
 }
 
 .slider-block {
-  height: 60vw;
+  height: 59vw;
   max-height: 600px;
   background-color: rgb(240,108,100);
   position: relative;
@@ -220,6 +220,16 @@ button::-moz-focus-outer, ::-moz-focus-inner {
 .img-slider-container.blue {
   background-color: rgb(100,139,240);
   border-bottom: 6px solid rgb(98,146,255);
+}
+
+.img-slider-container.blue::before {
+  content: '';
+  width: 100vh;
+  height: 100vh;
+  position: absolute;
+  top: -95px;
+  left: 0;
+  background-color: rgb(100,139,240);
 }
 
 .wrap-img {
@@ -522,9 +532,9 @@ svg:hover {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  /* height: 621px; */
   overflow: hidden;
   position: relative;
+  margin-bottom: 27px;
 }
 
 .portfolio-h2 {
@@ -570,7 +580,7 @@ svg:hover {
 
 .gallery .img {
   max-width: 220px;
-  width: 21vw;
+  width: 22vw;
   height: 187px;
   margin: 10px;
   top: 0;
@@ -1038,16 +1048,96 @@ svg:hover {
   text-align: justify;
 }
 
+.staff-img.mobile{
+  display: none;
+}
+
 @media screen and (max-width: 1019px) {
+  
+  .about {
+    padding: 52px 30px 0;
+  }
+
+  .arrow.prev {
+    margin-left: 30px;
+  }
+
+  .arrow.next {
+    margin-right: 27px;
+  }
+
+  .margin-slider-lr-1 {
+    width: 2%;
+  }
+
+  .margin-slider-1 {
+    width: 12%;
+  }
+
+  .menu {
+    margin-bottom: 5px;
+  }
+
+  .header .menu li {
+    margin-left: 29px;
+  }
+
+  .services {
+    padding: 37px 10px 23px 10px;
+  }
+
+  .content-3 p {
+    line-height: 27px;
+    letter-spacing: .6px;
+  }
+
+  .inner-content {
+    padding-right: 34px;
+  }
+
+  .gallery {
+    margin-top: 7px;
+    margin-bottom: 25px;
+  }
+
+  .gallery .img {
+    height: 24vw;
+  }
+
   .section {
     width: auto;
   }
 
+  .people {
+    margin-top: 28px;
+  }
+
+  .figure {
+    margin: 11px;
+  }
+
+  .figure figcaption {
+    margin-top: 8px;
+  }
+
+  .figure figcaption p{
+    max-height: 64px;
+    margin-top: 0;
+  }
+
+  .social {
+    margin-top: 12px;
+  }
+
+  .services-content {
+    border-bottom: none;
+  }
+
   .content-2 {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 123px 123px 123px;
+    grid-template-rows: repeat(3, 145px);
     grid-gap: 0px 19px;
-    margin-top: 43px;
+    margin-top: 33px;
   }
 
   .inner-content {
@@ -1058,6 +1148,14 @@ svg:hover {
     width: 100%;
   }
 
+  .quote {
+    padding: 54px 30px 27px;
+  }
+
+  .content-form {
+    padding: 24px 10px 0;
+  }
+
   .wrap-image {
     width: auto;
     height: auto;
@@ -1065,7 +1163,8 @@ svg:hover {
   
   .about-content {
     height: auto;
-    padding-bottom: 30px;
+    padding-bottom: 59px;
+    border-bottom: 0;
   }
 
   .figure:nth-child(2) {
@@ -1075,6 +1174,28 @@ svg:hover {
 
   .form input {
     width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .about-us {
+    margin-left: 29px;
+  }
+
+  .information-describe {
+    margin-top: 0;
+  }
+
+  .contact-information {
+    margin-top: 12px;
+  }
+
+  .form textarea {
+    height: 159px;
+    margin-bottom: 14px;
+  }
+
+  .form input.send-button {
+    width: 135px;
   }
 
   .form {
@@ -1082,7 +1203,7 @@ svg:hover {
   }
 
   .form textarea {
-    width: 60vw;
+    width: 57.5vw;
   }
 
   .quote-content {
@@ -1095,7 +1216,6 @@ svg:hover {
 
   .gallery .img {
     max-width: 100%;
-    height: 25vw;
     flex: 1 0 23%;
     background-size: cover;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -1105,15 +1225,127 @@ svg:hover {
 
 @media screen and (max-width: 767px) {
   
+  .staff-img.mobile{
+    display: inline;
+  }
+
+  .staff-img.desctop{
+    display: none;
+  }
+
+  .slider-block {
+    height: 59vw;
+  }
+
+  .margin-slider-lr-1 {
+    width: 0;
+  }
+  
   .section {
     width: auto;
   }
+  
+  .services {
+    padding: 25px 10px 0 10px;
+  }
+  
+  .services-content {
+    border-bottom: none;
+  }
+
+  .portfolio-content {
+    padding-bottom: 5px;
+    margin-top: -5px;
+  }
+  
+  .portfolio {
+    padding: 43px 25px 0;
+  }
+  
+  .content-3 p {
+    line-height: 29px;
+  }
+
+  .content-3 {
+    margin-bottom: 9px;
+  }
+
+  .content-1 p {
+    letter-spacing: 0.5px;
+  }
+
+  .content-2 {
+    margin-top: 26px;
+  }
+
+  .content-4 p {
+    letter-spacing: .2px;
+  }
+
   .quote-content {
     border-bottom: none;
   }
 
   .about-content {
     border-bottom: none;
+  }
+
+  .figure figcaption {
+    margin-top: 14px;
+  }
+
+  .figure figcaption p {
+    margin-top: 0px;
+  }
+
+  .social {
+    margin-top: 12px;
+  }
+
+  .about-content {
+    height: auto;
+    padding-bottom: 21px;
+  }
+
+  .quote {
+    padding: 44px 20px 0;
+  }
+
+  .content-5 p {
+    letter-spacing: .2px;
+  }
+
+  .form input {
+    margin-bottom: 12px;
+  }
+
+  .content-form {
+    padding: 24px 10px 0;
+  }
+
+  .form textarea {
+    height: 158px;
+    margin-bottom: 11px;
+  }
+  
+  .form input.send-button {
+    height: 50px;
+  }
+
+  .about-us {
+    margin: 20px 0 32px 0;
+  }
+  
+  .information-describe {
+    margin-top: -1px;
+  }
+
+  .contact-information {
+    margin-top: 14px;
+  }
+
+  .contact {
+    margin-bottom: 11px;
   }
 
   nav.menu {
@@ -1127,11 +1359,12 @@ svg:hover {
   }
 
   .portfolio-h2 {
-    margin-left: 0;
+    margin-left: 4px;
   }
 
   .content-3 p {
-    margin-left: 0;
+    margin-left: 4px;
+    letter-spacing: .3px;
   }
 
   .portfolio-menu ul {
@@ -1146,6 +1379,7 @@ svg:hover {
     width: 25px;
     height: 20px;
     cursor: pointer;
+    z-index: 2;
   }
 
   .hamburger-line {
@@ -1192,7 +1426,7 @@ svg:hover {
   }
 
   .margin-slider-1 {
-    width: 17%;
+    width: 24%;
   }
 
   .img-slider-container {
@@ -1200,11 +1434,8 @@ svg:hover {
   }
 
   .inner-slider-block {
-    padding: 0px 6%;
-  }
-
-  .portfolio {
-    padding: 59px 25px 0;
+    position: relative;
+    padding: 0px 5%;
   }
 
   .inner-slider-block.slider-2 {
@@ -1239,15 +1470,15 @@ svg:hover {
 
   .gallery .img {
     width: auto;
-    height: 38vw;
+    height: 34vw;
     flex: 1 0 32%;
     background-size: cover;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    margin: 5px;
+    margin: 7px;
   }
 
   .gallery {
-    height: calc((38vw * 4) + 40px);
+    height: calc((34vw * 4) + 56px);
   }
 
   .header .logo, .header .logo h1 {
@@ -1257,34 +1488,32 @@ svg:hover {
 
   .inner-content {
     max-width: none;
-    margin-right: 20px;
+    margin-right: 14px;
+    padding-right: 0;
   }
 
   .content-2 {
     grid-template-columns: 1fr;
-    grid-template-rows: 123px 123px 123px 123px 123px 123px;
+    grid-template-rows: repeat(6, 120px);;
   }
 
   .quote-content {
     height: auto;
   }
 
-  .about-content {
-    height: auto;
-    padding-bottom: 30px;
-  }
-
   .about {
-    padding: 59px 20px 0;
+    padding: 33px 20px 0;
   }
 
   .people {
+    margin-top: 14px;
     flex-direction: column;
     align-items: center;
   }
 
   .figure {
-    width: calc(100vw - 75px);
+    width: calc(100vw - 61px);
+    margin-bottom: 18px;
   }
 
   .wrap-image {
@@ -1320,20 +1549,12 @@ svg:hover {
     width: 100%;
   }
 
-  .about-us {
-    margin: 10px 0 30px 0;
-  }
-
   .copyright {
     display: none;
   }
 
   .wrap-footer {
     justify-content: center;
-  }
-
-  .quote {
-    padding: 59px 20px 0;
   }
 
   .services-content {
@@ -1347,19 +1568,20 @@ svg:hover {
   nav.menu {
     transition: all .5s ease;
     position: fixed;
-    top: 71px;
+    top: 0;
     left: 0;
     background: rgba(45,48,58,0);
     width: 100vw;
-    height: calc(100vh - 71px);
+    height: 100vh;
   }
   
   .menu ul.menu-list {
     transform: translateX(-278px);
-    height: calc(100vh - 71px);
+    height: 100vh;
     flex-direction: column;
     width: 278px;
     background-color: rgb(45,48,58);
+    box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
     padding-left: 71px;
     font-weight: bold;
     font-size: 24px;
@@ -1389,6 +1611,7 @@ svg:hover {
   .header .logo, .header .logo h1 {
     position: relative;
     margin-top: 10px;
+    z-index: 2;
   }
 
   @keyframes open-hamburger {

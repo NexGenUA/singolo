@@ -9,12 +9,12 @@
   <title>Singolo Task</title>
 </head>
 <body>
-  <section class="top">
+  <section class="top" id="top">
     <header class="header section">
       <span id="hamburger" class="hamburger-menu">
         <span class="hamburger-line"></span>
       </span>
-      <div class="logo" id="logo" style="transition: all 0.5s ease 0s; left: 0px;">
+      <div class="logo" id="logo" style="transition: all 0.5s ease 0s; left: 3px;">
         <h1>singolo</h1>
         <span class="brand-color">*</span>
       </div>
@@ -180,7 +180,10 @@
       </article>
       <article class="people">
         <figure class="figure">
-          <div class="wrap-image"><img class="staff-img" src="assets/img/adam.jpg" alt="Adam Jensen" /></div>
+          <div class="wrap-image">
+            <img class="staff-img desctop" src="assets/img/adam.jpg" alt="Adam Jensen" />
+            <img class="staff-img mobile" src="assets/img/adam-m.jpg" alt="Adam Jensen" />
+          </div>
           <figcaption>
             <h3>Adam Jensen</h3>
             <p>Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
@@ -193,7 +196,10 @@
           </figcaption>
         </figure>
         <figure class="figure">
-          <div class="wrap-image"><img class="staff-img" src="assets/img/desmond.jpg" alt="Desmond Miles" /></div>
+          <div class="wrap-image">
+            <img class="staff-img desctop" src="assets/img/desmond.jpg" alt="Desmond Miles" />
+            <img class="staff-img mobile" src="assets/img/desmond-m.jpg" alt="Desmond Miles" />
+          </div>
           <figcaption>
             <h3>Desmond Miles</h3>
             <p>Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
@@ -206,7 +212,10 @@
           </figcaption>
         </figure>
         <figure class="figure">
-          <div class="wrap-image"><img class="staff-img" src="assets/img/scolara.jpg" alt="Scolara Visari" /></div>
+          <div class="wrap-image">
+            <img class="staff-img desctop" src="assets/img/scolara.jpg" alt="Scolara Visari" />
+            <img class="staff-img mobile" src="assets/img/scolara-m.jpg" alt="Scolara Visari" />
+          </div>
           <figcaption>
             <h3>Scolara Visari</h3>
             <p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
@@ -233,7 +242,7 @@
           <input type="email" placeholder="Email (Required)" title="Enter valid e-mail, example: my-mail@mail.com" pattern="[a-zA-Z0-9-\._]+@[a-zA-Z]+\.[a-zA-Z]{2,6}" required>
           <input type="text" placeholder="Subject" name="subject">
           <textarea id="area" name="area" placeholder="Describe your project in detail..."></textarea>
-          <input type="submit" value="submit" class="send-button">
+          <input type="submit" value="send" class="send-button">
         </form>
         <aside class="about-us">
           <h3 class="about-h3">contact information</h3>
