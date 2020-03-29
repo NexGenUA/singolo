@@ -3,6 +3,8 @@ class ActiveLink {
   constructor() {
     this.links  = document.querySelectorAll('#menu-list a');
     this.menu = document.querySelector('#menu-list');
+    this.html = document.querySelector('html');
+    this.topSection = document.querySelector('#top');
     this.anchors = [...document.querySelectorAll('section')].slice(1);
     this.blockList = {};
     this.anchors.forEach(block => {
@@ -22,9 +24,10 @@ class ActiveLink {
 
   setActiveLink(e) {
     const shift = window.innerHeight / 6;
+    const offset = window.pageYOffset;
+    
     for (const block in this.blockList) {
       const top = this.blockList[block].top;
-      const offset = window.pageYOffset
       if (offset >= top - shift && offset <= top + shift) {
         this.links.forEach(link => {
           if (!!~link.href.indexOf(block)) {
@@ -34,6 +37,14 @@ class ActiveLink {
           }
         })
       }
+    }
+
+    if (offset > 10) {
+      this.html.style.marginTop = '71px';
+      this.topSection.style.height = '71px';
+    } else {
+      this.html.removeAttribute('style');
+      this.topSection.removeAttribute('style');
     }
   }
 
@@ -297,17 +308,39 @@ class showHamburgerMenu {
     this.ul = this.menu.querySelector('#menu-list');
     this.showMenu = this.showMenu.bind(this);
     this.hamburgerMenu.addEventListener('click', this.showMenu);
+    this.menu.addEventListener('click', this.showMenu);
     this.stop = false;
   }
 
   showMenu(e) {
     const hamburger = e.target.closest('.hamburger-menu');
     
+    const close = () => {
+      this.hamburgerMenu.classList.remove('open-hamburger');
+      this.hamburgerMenu.classList.add('close-hamburger');
+      this.ul.style.transform = 'translateX(-278px)';
+      this.menu.style.background = 'rgba(45,48,58,0)';
+      this.logo.style.left = '3px';
+      
+      setTimeout(() => {
+        this.hamburgerMenu.classList.remove('close-hamburger');
+        this.ul.removeAttribute('style');
+        this.menu.style.background = '';
+        this.menu.style.display = 'none';
+        this.menu.removeAttribute('style');
+        this.stop = false;
+      }, 500);
+    };
+    
+    if (e.target.tagName === 'A') close();
+
+    if (!hamburger) return;
+    
     if (this.stop) return;
     
     this.stop = true;
     
-    const hideMenu = () => {
+    const show = () => {
       this.menu.style.display = 'flex';
       this.ul.style.transition = 'all .5s ease';
 
@@ -322,24 +355,13 @@ class showHamburgerMenu {
       setTimeout(() => {
         this.stop = false;
       }, 500);
-    }
+    };
+
 
     if (hamburger.classList.contains('open-hamburger')) {
-      hamburger.classList.remove('open-hamburger');
-      hamburger.classList.add('close-hamburger');
-      this.ul.style.transform = 'translateX(-278px)';
-      this.menu.style.background = 'rgba(45,48,58,0)';
-      this.logo.style.left = 0;
-      
-      setTimeout(() => {
-        hamburger.classList.remove('close-hamburger');
-        this.ul.removeAttribute('style');
-        this.menu.style.background = '';
-        this.menu.style.display = 'none';
-        this.stop = false;
-      }, 500);
+      close();
     } else {
-      hideMenu();
+      show();
     }
   }
 }
