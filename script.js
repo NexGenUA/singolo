@@ -106,7 +106,7 @@ class Slider {
     
     this.isMove = true;
 
-    const width = document.body.clientWidth;
+    const width = window.innerWidth;
     const shift = prev ? -1 : 1;
     const currentSlide = sliders.find(el => el.hasAttribute('current-slide'));
     const currentIdx = sliders.indexOf(currentSlide);
@@ -116,13 +116,13 @@ class Slider {
     [currentSlide, nextSlide].map((slide, i) => {
       slide.style.display = 'flex';
       slide.style.transition = 'all .5s ease-in-out';
-      
+      console.log(width)
       if (!i) {
-        slide.style.transform = `translateX(${prev ? '-' : ''}${width}px)`;
+        slide.style.left = `${prev ? '-' : ''}${width}px`;
       } else {
-        slide.style.transform = `translateX(${!prev ? '-' : ''}${width}px)`;
+        slide.style.left = `${!prev ? '-' : ''}${width}px`;
         setTimeout(() => {
-          slide.style.transform = '';
+          slide.style.left = '';
         }, 50)
       }
 
@@ -313,7 +313,7 @@ class showHamburgerMenu {
       this.ul.style.transform = 'translateX(-278px)';
       this.menu.style.background = 'rgba(45,48,58,0)';
       this.logo.style.left = '3px';
-      
+
       setTimeout(() => {
         this.hamburgerMenu.classList.remove('close-hamburger');
         this.ul.removeAttribute('style');
@@ -324,7 +324,7 @@ class showHamburgerMenu {
       }, 500);
     };
     
-    if (e.target.tagName === 'A') close();
+    if (e.target.tagName === 'A' && window.innerWidth < 768) close();
 
     if (!hamburger) return;
     
